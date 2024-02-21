@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+class Main {
+    static int[] stack;
+    static int top;
+    static Scanner sc = new Scanner(System.in);
+
+    public static void main(String arg[]) {
+        System.out.print("Enter the size of the stack: ");
+        int n = sc.nextInt();
+        stack = new int[n];
+        top = -1;
+ while(true){
+            System.out.println("\n 1.display\n 2.push\n 3.Pop\n Other choice the code exit\n");
+            int ch=sc.nextInt();
+            switch(ch)
+            {
+                case 1:
+                    System.out.println("Display");
+                    display();
+                    break;
+                    
+                case 2:
+        System.out.print("Enter the number of values to push: ");
+        int numberOfValues = sc.nextInt();
+System.out.print("Enter value to push: ");
+        for (int i = 0; i < numberOfValues; i++) {
+            
+            int value = sc.nextInt();
+            push(value);
+            
+        }
+display();
+break;
+case 3:
+        System.out.print("Enter the number of values to pop: ");
+        int numberOfPops = sc.nextInt();
+
+        for (int i = 0; i < numberOfPops; i++) {
+            pop();
+            display();
+        }
+        break;
+        default:
+            System.out.println("Completed");
+            System.exit(0);
+    }
+ }
+    }
+    
+
+    static void push(int data) {
+        if (top == stack.length - 1) {
+            System.out.println("Stack Overflow");
+        } else {
+            stack[++top] = data;
+        }
+    }
+
+    static void display() {
+        System.out.println("Display");
+         if (top == -1) {
+            System.out.println("Stack Underflow");
+        }else{
+        for (int i = 0; i <= top; i++) {
+            System.out.print(stack[i] + " ");
+        }
+        }
+        System.out.println();
+    }
+
+    static void pop() {
+        if (top == -1) {
+            System.out.println("Stack Underflow");
+        } else {
+            System.out.println("Popped value: " + stack[top--]);
+        }
+    }
+}
+
